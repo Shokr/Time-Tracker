@@ -1,12 +1,16 @@
-*{
+* {
     box-sizing: border-box;
 }
-body, html{
+
+body, html {
+    font-family: 'Ubuntu Mono', sans-serif;
+
     height: 100%;
-    background-color: #749ad8;
+    background-color: aqua;
     background-image: url("loginBG.jpg");
 }
-#homepage{
+
+#homepage {
     position: relative;
     margin: auto;
     border: 2px solid white;
@@ -14,27 +18,30 @@ body, html{
     width: 100%;
     height: 450px;
 }
-.in_con{
+
+.in_con {
     position: absolute;
-    background-color: #a2bce5;
+    background-color: aquamarine;
     text-align: center;
     font-size: 25px;
     width: 50%;
     height: 100%;
     padding: 16px;
 }
-#greeting{
+
+#greeting {
     left: 0;
     opacity: 0.8;
     border-right: 2px solid white;
     overflow: auto;
 }
-#log{
+
+#log {
     right: 0;
     overflow: auto;
 }
 
-#login{
+#login {
     width: 920px;
 }
 
@@ -43,17 +50,17 @@ input[type="text"] {
     height: 25px;
 }
 
-input[type="password"]{
+input[type="password"] {
     width: 40%;
     height: 25px;
 }
 
-button{
+button {
     width: 15%;
     height: 8%;
 }
 
-.error{
+.error {
     color: darkred;
     border: 2px solid;
     text-align: center;

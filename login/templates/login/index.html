@@ -4,43 +4,48 @@
     <meta charset="UTF-8">
     <title>Login Page</title>
     {% load static %}
+
+    <link href="http://fonts.cdnfonts.com/css/ubuntu-mono" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
 </head>
 <body>
-    <div id="homepage">
-        <div id="greeting" class="in_con">
-            <h1>Welcome to the Employee Time-Tracker!</h1>
-            <p>Track your hours - organize by project - analyze how your time was spent!</p>
-            <p>All in one application!</p>
-            <p>If you do not have a username and password (or if you've forgotten yours) contact the site administrator</p>
-        </div>
-        <div id="log" class="in_con">
-            <form id="login" action="{% url 'login:logged' %}" method="post">
-                {% csrf_token %}
-                <h1>Log in</h1>
-                <input type="text" maxlength="100" name="in_user" placeholder="Username" autocomplete="off"><br><br>
-                <input type="password" maxlength="100" name="in_pass" placeholder="Password" autocomplete="off" id="in_pass"><br>
-                <br>
-                <input type="checkbox" onclick="tog_pass()">Show Password<br>
-                <button type="submit">Log in</button>
-            </form><br>
-            {% if messages %}
-                 {% for message in messages %}
-                 <p class="{{ message.tags }}" >{{ message }}</p><br>
-                 {% endfor %}
-             {% endif %}
-        </div>
+<div id="homepage">
+    <div id="greeting" class="in_con">
+        <h1>Welcome to the Employee Time-Tracker!</h1>
+        <p>Track your hours - organize by project - analyze how your time was spent!</p>
+        <p>All in one application!</p>
+        <p>If you do not have a username and password (or if you've forgotten yours) contact the site administrator</p>
     </div>
+    <div id="log" class="in_con">
+        <form id="login" action="{% url 'login:logged' %}" method="post">
+            {% csrf_token %}
+            <h1>Log in</h1>
+            <input type="text" maxlength="100" name="in_user" placeholder="Username" autocomplete="off"><br><br>
+            <input type="password" maxlength="100" name="in_pass" placeholder="Password" autocomplete="off"
+                   id="in_pass"><br>
+            <br>
+            <input type="checkbox" onclick="tog_pass()"><span>Show Password</span><br>
+            <button type="submit">Log in</button>
+        </form>
+        <br>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="{{ message.tags }}">{{ message }}</p><br>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
 
-    <script>
-        function tog_pass() {
-            var x = document.getElementById("in_pass");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
+<script>
+    function tog_pass() {
+        var x = document.getElementById("in_pass");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
         }
-    </script>
+    }
+</script>
 </body>
 </html>
